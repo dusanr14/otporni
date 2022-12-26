@@ -2,8 +2,8 @@ clear all
 clc
 
 %broj bita odbirka (format je 1.23)
-word_length = 24;
-fraction_length = 23;
+word_length = 17;
+fraction_length = 16;
 
 %specifikacija NF filtra
 fir_ord = 20;

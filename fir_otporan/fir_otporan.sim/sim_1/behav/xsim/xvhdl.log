@@ -1,0 +1,6 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/student/Downloads/otporni/fir_otporan/fir_otporan.srcs/sources_1/new/dsp.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mac'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/student/Downloads/otporni/fir_otporan/fir_otporan.srcs/sources_1/new/fir_filtar.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'fir_param'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/student/Downloads/otporni/fir_otporan/fir_otporan.srcs/sim_1/new/tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tb'

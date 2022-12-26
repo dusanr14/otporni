@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Dec 26 18:12:16 2022
+# Process ID: 2804
+# Current directory: C:/Users/student/Downloads/otporni/fir_otporan/fir_otporan.runs/synth_1
+# Command line: vivado.exe -log fir_param.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fir_param.tcl
+# Log file: C:/Users/student/Downloads/otporni/fir_otporan/fir_otporan.runs/synth_1/fir_param.vds
+# Journal file: C:/Users/student/Downloads/otporni/fir_otporan/fir_otporan.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source fir_param.tcl -notrace

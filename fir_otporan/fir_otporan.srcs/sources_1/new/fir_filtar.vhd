@@ -4,8 +4,8 @@ use IEEE.NUMERIC_STD.ALL;
 use work.util_pkg.all;
 entity fir_param is
  generic(fir_ord : natural := 20;
-         WIDTH : natural := 24;
-         FIXED_POINT_POSITION:natural:=23);
+         WIDTH : natural := 17;
+         FIXED_POINT_POSITION:natural := 1);
  Port (  clk_i : in STD_LOGIC;
          rst : in STD_LOGIC;
          we_i : in STD_LOGIC;
@@ -34,32 +34,32 @@ begin
  end process;
  --instanca prvog MAC-a ?iji je ulaz sec_i jednak 0
  first_section:
- entity work.simple_multiplier(behavioral)
+ entity work.mac(behavioral)
  generic map(WIDTH=>WIDTH)
  port map(clk_i => clk_i,
-         rst => rst,
-         a_i => data_i,
+         rst_i => rst,
+         u_i => data_i,
          b_i => b_s(fir_ord),
-         c_i => (others=>'0'),
-         c_o => mac_inter(0));
+         sec_i => (others=>'0'),
+         sec_o => mac_inter(0));
  --instanciranje ostalih MAC modula filtra
  other_sections:
  for i in 1 to fir_ord generate
      fir_section:
-     entity work.simple_multiplier(behavioral)
+     entity work.mac(behavioral)
      generic map(WIDTH=>WIDTH)
      port map(clk_i => clk_i,
-              rst => rst,
-              a_i => data_i,
+              rst_i => rst,
+              u_i => data_i,
               b_i => b_s(fir_ord-i),
-              c_i => mac_inter(i-1), --sec_o signal prethodnog MAC modula
-              c_o => mac_inter(i));
+              sec_i => mac_inter(i-1), --sec_o signal prethodnog MAC modula
+              sec_o => mac_inter(i));
  end generate;
  --registrovanje izlaznog signala
- process(clk_i)
- begin
-     if(clk_i'event and clk_i='1')then
-         data_o <= mac_inter(fir_ord)( (WIDTH + FIXED_POINT_POSITION - 1) downto FIXED_POINT_POSITION );
-     end if;
- end process;
+ --process(clk_i)
+ --begin
+ --    if(clk_i'event and clk_i='1')then
+         data_o <= mac_inter(fir_ord)( 2 * WIDTH - 1 - FIXED_POINT_POSITION downto WIDTH - FIXED_POINT_POSITION );
+ --    end if;
+ --end process;
 end Behavioral;
